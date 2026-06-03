@@ -1,0 +1,20 @@
+{
+  "playlists": [
+    {
+      "name": "我的收藏",
+      "description": "最近常听的歌",
+      "songs": []
+    },
+    {
+      "name": "深夜听",
+      "description": "适合深夜安静听的歌",
+      "songs": []
+    },
+    {
+      "name": "工作专注",
+      "description": "工作时听的纯音乐/轻音乐",
+      "songs": []
+    }
+  ],
+  "recently_played": []
+}

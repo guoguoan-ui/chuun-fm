@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CHUUN FM">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><circle cx='24' cy='24' r='20' fill='%234088ff'/><circle cx='24' cy='24' r='6' fill='%23fff'/><line x1='24' y1='4' x2='24' y2='18' stroke='%23fff' stroke-width='2'/><line x1='24' y1='30' x2='24' y2='44' stroke='%23fff' stroke-width='2'/></svg>">
+  <title>CHUUN FM</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body data-theme="ocean">
+  <div id="app">
+    <!-- 大时钟 -->
+    <div class="clock-block">
+      <div class="clock-large" id="clockTime">00:00</div>
+      <div class="clock-date" id="clockDate">---</div>
+      <div class="theme-row">
+        <span class="theme-dot" data-theme="ocean"></span>
+        <span class="theme-dot" data-theme="pink"></span>
+        <span class="theme-dot" data-theme="earth"></span>
+      </div>
+    </div>
+
+    <!-- 对话 -->
+    <div class="chat-box" id="chatBox"></div>
+
+    <!-- 正在播放 -->
+    <div class="track-info">
+      <span class="track-title" id="npTitle">CHUUN FM</span>
+      <span class="track-artist" id="npArtist">Your personal AI radio</span>
+    </div>
+
+    <!-- 歌词 -->
+    <div class="lyrics-box" id="lyricsBox" style="display:none">
+      <div class="lyrics-scroll" id="lyricsScroll"></div>
+    </div>
+
+    <!-- 进度 -->
+    <div class="progress-row">
+      <div class="progress-bg"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <!-- 控制 -->
+    <div class="ctrl-row">
+      <button class="ctrl-btn" id="btnPrev">
+        <svg viewBox="0 0 24 24"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+      </button>
+      <button class="ctrl-btn ctrl-play" id="btnPlay">
+        <svg id="icoPlay" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+        <svg id="icoPause" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <button class="ctrl-btn" id="btnNext">
+        <svg viewBox="0 0 24 24"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+      </button>
+    </div>
+
+    <!-- 搜索 -->
+    <div class="search-row">
+      <input type="text" id="searchInput" placeholder="Search songs..." autocomplete="off">
+      <button class="btn-pill" id="btnSearch">Search</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+
+    <!-- 聊天 -->
+    <div class="chat-row">
+      <input type="text" id="textInput" placeholder="Chat with An Yu..." autocomplete="off">
+      <button class="btn-pill" id="btnSend">Send</button>
+    </div>
+
+    <!-- 便签 -->
+    <div class="notes-section">
+      <div class="notes-header">
+        <svg viewBox="0 0 24 24" width="12" height="12"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+        Notes
+      </div>
+      <div class="notes-body">
+        <input type="text" class="notes-input" id="notesInput" placeholder="Write a note..." autocomplete="off">
+        <button class="notes-add" id="btnAddNote">+</button>
+      </div>
+      <div class="notes-list" id="notesList"></div>
+    </div>
+
+    <!-- 每日一言 -->
+    <div class="quote-line" id="quoteLine">"Music is the shorthand of emotion."</div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

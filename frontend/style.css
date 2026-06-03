@@ -1,0 +1,107 @@
+/* ─── Themes ─── */
+:root{--bg:#0a0a12;--surface:#12121e;--text:#e0e4f0;--text-dim:#8890a8;--text-muted:#50586a;--border:rgba(255,255,255,0.05);--font:-apple-system,'Helvetica Neue','PingFang SC',sans-serif}
+[data-theme="ocean"]{--accent:#4088ff;--accent-dim:#2860cc;--accent-bg:rgba(64,136,255,0.06)}
+[data-theme="pink"]{--bg:#0e080a;--surface:#1a1016;--accent:#e88ab0;--accent-dim:#c06088;--accent-bg:rgba(232,138,176,0.06);--text:#eed8e0;--text-dim:#a88898;--text-muted:#785868}
+[data-theme="earth"]{--bg:#080e0a;--surface:#0e1a12;--accent:#50b080;--accent-dim:#308860;--accent-bg:rgba(80,176,128,0.06);--text:#d8eed8;--text-dim:#88a888;--text-muted:#586858}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--font);display:flex;justify-content:center;min-height:100vh;-webkit-font-smoothing:antialiased;transition:background 0.3s}
+#app{width:100%;max-width:420px;min-height:100vh;display:flex;flex-direction:column;padding:24px 20px 16px;gap:6px}
+
+/* ─── Clock ─── */
+.clock-block{text-align:center;padding:12px 0 6px;cursor:pointer}
+
+/* Screensaver 模式：只显示大时钟 */
+body.screensaver .clock-block{padding:40vh 0}
+body.screensaver .clock-large{font-size:96px}
+body.screensaver .chat-box,
+body.screensaver .track-info,
+body.screensaver .lyrics-box,
+body.screensaver .progress-row,
+body.screensaver .ctrl-row,
+body.screensaver .search-row,
+body.screensaver .search-results,
+body.screensaver .chat-row,
+body.screensaver .notes-section,
+body.screensaver .quote-line,
+body.screensaver .theme-row,
+body.screensaver .clock-date{display:none!important}
+body.screensaver #app{justify-content:center;padding:0}
+.clock-large{font-size:68px;font-weight:250;letter-spacing:3px;line-height:1;font-variant-numeric:tabular-nums;color:var(--text);transition:color 0.3s}
+.clock-date{font-size:11px;color:var(--text-muted);margin-top:4px;letter-spacing:1px;transition:color 0.3s}
+.theme-row{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.theme-dot{width:6px;height:6px;border-radius:50%;cursor:pointer;opacity:0.25;transition:all 0.2s}
+.theme-dot[data-theme="ocean"]{background:#4088ff}.theme-dot[data-theme="pink"]{background:#e88ab0}.theme-dot[data-theme="earth"]{background:#50b080}
+.theme-dot:hover{opacity:0.5}
+.theme-dot.active{opacity:1;transform:scale(1.4)}
+
+/* ─── Chat ─── */
+.chat-box{min-height:60px;max-height:100px;overflow-y:auto;scrollbar-width:thin;padding:2px 0}
+.msg{font-size:12px;line-height:1.5;margin-bottom:3px;padding:3px 0;color:var(--text-dim);transition:color 0.3s}
+.msg.you{color:var(--text-muted)}
+.msg .label{font-size:9px;color:var(--text-muted);display:block;margin-bottom:1px}
+
+/* ─── Track ─── */
+.track-info{text-align:center;padding:1px 0}
+.track-title{font-size:14px;font-weight:500;display:block;transition:color 0.3s}
+.track-artist{font-size:11px;color:var(--text-dim);display:block;margin-top:1px;transition:color 0.3s}
+
+/* ─── Lyrics ─── */
+.lyrics-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 10px;max-height:130px;overflow-y:auto;scrollbar-width:thin;transition:all 0.3s}
+.lrc-line{padding:2px 0;font-size:11px;color:var(--text-muted);text-align:center;transition:all 0.3s;line-height:1.5}
+.lrc-line.active{color:var(--accent);font-weight:600;font-size:12px}
+.lrc-line.done{color:var(--text-dim);font-size:10px}
+
+/* ─── Progress ─── */
+.progress-row{padding:1px 0}
+.progress-bg{height:2px;background:var(--border);border-radius:2px}
+.progress-fill{height:100%;border-radius:2px;width:0%;transition:width 0.2s}
+
+/* ─── Controls ─── */
+.ctrl-row{display:flex;justify-content:center;align-items:center;gap:20px;padding:2px 0}
+.ctrl-btn{background:none;border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.ctrl-btn svg{width:16px;height:16px;fill:none;stroke:var(--text-dim);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.3s}
+.ctrl-btn:hover svg{stroke:var(--text)}
+.ctrl-play{width:46px;height:46px;background:var(--accent);transition:background 0.3s}
+.ctrl-play svg{stroke:#fff;width:18px;height:18px}
+.ctrl-play:hover{opacity:0.85}
+.ctrl-play:hover svg{stroke:#fff}
+
+/* ─── Buttons ─── */
+.btn-pill{padding:8px 16px;border:none;border-radius:18px;background:var(--accent);color:#fff;font-size:11px;font-weight:500;font-family:var(--font);cursor:pointer;white-space:nowrap;transition:all 0.2s}
+.btn-pill:hover{opacity:0.85}
+
+/* ─── Search ─── */
+.search-row{display:flex;gap:6px}
+.search-row input,.chat-row input,.notes-input{flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:16px;background:var(--surface);color:var(--text);font-size:12px;font-family:var(--font);outline:none;transition:all 0.3s}
+.search-row input:focus,.chat-row input:focus,.notes-input:focus{border-color:var(--accent)}
+.search-results{display:none;max-height:220px;overflow-y:auto;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:4px 0;transition:all 0.3s}
+.sr-item{display:flex;align-items:center;gap:8px;padding:7px 10px;cursor:pointer;border-bottom:1px solid var(--border)}
+.sr-item:last-child{border-bottom:none}
+.sr-item:hover{background:var(--accent-bg)}
+.sr-info{flex:1;min-width:0}
+.sr-name{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr-artist{font-size:9px;color:var(--text-dim);margin-top:1px}
+.sr-idx{font-size:9px;color:var(--text-muted);width:14px;text-align:right;flex-shrink:0}
+.sr-play{font-size:9px;color:var(--accent);padding:2px 8px;border:1px solid var(--accent);border-radius:6px;transition:all 0.2s;flex-shrink:0}
+.sr-item:hover .sr-play{background:var(--accent);color:#fff}
+
+/* ─── Chat ─── */
+.chat-row{display:flex;gap:6px}
+
+/* ─── Notes ─── */
+.notes-section{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;transition:all 0.3s}
+.notes-header{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
+.notes-header svg{stroke:var(--text-muted);fill:none;stroke-width:2}
+.notes-body{display:flex;gap:4px}
+.notes-input{font-size:11px;padding:6px 10px}
+.notes-add{width:28px;height:28px;border:none;border-radius:50%;background:var(--accent);color:#fff;font-size:14px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.notes-add:hover{opacity:0.85}
+.notes-list{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+.note-item{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--text-dim);padding:3px 4px;border-radius:4px;transition:background 0.15s}
+.note-item:hover{background:var(--accent-bg)}
+.note-del{background:none;border:none;color:var(--text-muted);font-size:10px;cursor:pointer;padding:0 4px;opacity:0;transition:opacity 0.15s}
+.note-item:hover .note-del{opacity:1}
+
+/* ─── Quote ─── */
+.quote-line{text-align:center;font-size:10px;color:var(--text-muted);font-style:italic;padding:4px 0 2px;letter-spacing:0.5px;transition:color 0.3s}

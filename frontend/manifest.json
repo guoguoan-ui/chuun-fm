@@ -1,0 +1,18 @@
+{
+  "name": "CHUUN FM",
+  "short_name": "CHUUN FM",
+  "description": "Your personal AI radio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a12",
+  "theme_color": "#4088ff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Ccircle cx='96' cy='96' r='80' fill='%234088ff'/%3E%3Ccircle cx='96' cy='96' r='24' fill='%23fff'/%3E%3Cline x1='96' y1='16' x2='96' y2='72' stroke='%23fff' stroke-width='8'/%3E%3Cline x1='96' y1='120' x2='96' y2='176' stroke='%23fff' stroke-width='8'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ],
+  "splash_pages": null
+}
