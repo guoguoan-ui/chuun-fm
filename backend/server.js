@@ -286,7 +286,9 @@ app.get('/api/wake', async (req, res) => {
 
     let greeting, searchKeyword;
     const now = new Date();
-    const dateStr = (now.getMonth()+1)+'/'+now.getDate()+'/'+now.getFullYear();
+    // 用北京时间
+    const beijing = new Date(now.toLocaleString('en-US', {timeZone:'Asia/Shanghai'}));
+    const dateStr = (beijing.getMonth()+1)+'/'+beijing.getDate()+'/'+beijing.getFullYear();
     if (profile && profile.profileSummary) {
       greeting = 'Good ' + timeGreeting + ', Jiang Jiang. Today is ' + dateStr + '. ' + weather + ' I picked some songs based on your taste. How are you feeling today?';
       searchKeyword = '独立民谣';
